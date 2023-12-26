@@ -1,0 +1,171 @@
+:root {
+  --primary-400: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --neutral-400: hsl(217, 12%, 63%);
+  --neutral-500: hsl(216, 12%, 54%);
+  --dark-500: hsl(213, 14%, 25%);
+  --dark-700: hsl(213, 19%, 18%);
+  --dark-900: hsl(216, 12%, 8%);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: 'Overpass', sans-serif;
+  font-size: 0.875rem;
+  color: var(--neutral-400);
+  margin: 0;
+}
+
+.rate {
+  min-height: 100svh;
+  padding-block: 30vh;
+  background: var(--dark-900);
+}
+
+.container {
+  width: 100%;
+  max-width: min(90%, 1400px);
+  margin: 0 auto;
+}
+
+.card {
+  width: 100%;
+  max-width: 375px;
+  background: var(--dark-700);
+  padding: 2em 1.75em;
+  margin: 0 auto;
+  border-radius: 2em;
+}
+
+.card__icon {
+  width: 2.5em;
+  height: 2.5em;
+  clip-path: circle();
+  background: var(--dark-500);
+}
+
+.card__icon img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.75);
+}
+
+.card__text {
+  line-height: 1.5em;
+}
+
+.card__title {
+  margin-top: 1em;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+
+.card__rate {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1.5em;
+}
+
+.card__rate input {
+  display: none;
+}
+
+.card__rate label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  clip-path: circle();
+  background: var(--dark-500);
+  transition: 0.5s ease;
+}
+
+
+.card__rate input:checked + label {
+  background: var(--primary-400);
+  color: var(--white);
+  transition: 0.5s ease;
+}
+
+.card__rate input:checked + label + input + label, .card__rate label:has(+ input:checked) {
+  background: var(--neutral-500);
+  color: var(--white);
+  transition: 1.5s ease;
+}
+
+.card__btn {
+  width: 100%;
+  padding: 0.75em;
+  margin-top: 1em;
+  border-radius: 2em;
+  background: var(--primary-400);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+}
+
+
+.card__btn:hover {
+  background: var(--white);
+  color: var(--primary-400);
+}
+
+.thank-you {
+  display: none;
+  text-align: center;
+}
+
+.thank-you .card__img img {
+  max-width: 100%;
+  width: 45%;
+}
+
+.card__message {
+  background: var(--dark-500);
+  width: 60%;
+  margin-block: 1.25em 2em; 
+  margin-inline: auto;
+  border-radius: 2em;
+}
+
+.card__message p {
+  color: var(--primary-400);
+  line-height: 2.25em;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-block: 0.5em;
+  background-color: var(--dark-700);
+  color: var(--white);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+
+.attribution a { color: var(--primary-400); }
+
+@media (min-width: 920px) {
+  body {
+    font-size: 0.9375rem;
+  }
+
+  .rate { 
+    padding-block: calc((90vh - 310px) / 2);
+  }
+
+  .card__title {
+    font-size: 1.5rem;
+  }
+}
